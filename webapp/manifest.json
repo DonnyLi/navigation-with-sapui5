@@ -69,17 +69,17 @@
 				"name": "appHome",
 				"target": "home"
 			}, {
-			    "pattern": "employees",
-			    "name": "employeeList",
-			    "target": "employees"
+				"pattern": "employees",
+				"name": "employeeList",
+				"target": "employees"
 			}, {
-			    "pattern": "employees/{employeeId}",
-			    "name": "employee",
-			    "target": "employee"
+				"pattern": "employees/{employeeId}",
+				"name": "employee",
+				"target": "employee"
 			}, {
-			   "pattern": "employees/{employeeId}/resume",
-			   "name": "employeeResume",
-			   "target": "employeeResume"
+				"pattern": "employees/{employeeId}/resume:?query:",
+				"name": "employeeResume",
+				"target": "employeeResume"
 			}],
 			"targets": {
 				"home": {
@@ -91,18 +91,33 @@
 					"transition": "show"
 				},
 				"employees": {
-				    "viewPath": "sap.ui.demo.nav.view.employees",
-				    "viewName": "EmployeeList",
-				    "viewLevel": 2
+					"viewPath": "sap.ui.demo.nav.view.employee",
+					"viewName": "EmployeeList",
+					"viewLevel" : 2
 				},
 				"employee": {
-				    "viewName": "employees.Employee",
-				    "viewLevel": 3
+					"viewName": "employee.Employee",
+					"viewLevel" : 3
 				},
 				"employeeResume": {
-				    "viewName": "employees.Resume",
-				    "viewLevel": 4,
-				    "transition": "flip"
+					"viewName": "employee.Resume",
+					"viewLevel" : 4,
+					"transition": "flip"
+				},
+				"resumeTabHobbies": {
+					"parent": "employeeResume",
+					"viewPath": "sap.ui.demo.nav.view.employee",
+					"viewName": "ResumeHobbies",
+					"viewId": "thisIsMyCustomIdToBeUsedForResumeHobbies",
+					"controlId": "hobbiesTab",
+					"controlAggregation": "content"
+				},
+				"resumeTabNotes": {
+					"parent": "employeeResume",
+					"viewPath": "sap.ui.demo.nav.view.employee",
+					"viewName": "ResumeNotes",
+					"controlId": "notesTab",
+					"controlAggregation": "content"
 				}
 			}
 		}
